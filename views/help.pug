@@ -1,0 +1,7 @@
+extends layout
+
+block content
+    h1= title
+    canvas(id="chart"  width="400" height="400")
+    if error
+        p Error getting dynamic content.

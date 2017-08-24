@@ -1,0 +1,47 @@
+doctype html
+html(lang='en')
+    head
+        title= title
+        meta(charset='utf-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(name='description', content='')
+        meta(name="author" content="")
+        link(rel='stylesheet', href='/vendor/bower_components/bootstrap/dist/css/bootstrap.css')
+        link(rel='stylesheet', href='/vendor/bower_components/nprogress/nprogress.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        script(src='/vendor/bower_components/jquery/dist/jquery.js')
+        script(src='/vendor/bower_components/jquery-ui/jquery-ui.js')
+        script(src='/vendor/bower_components/bootstrap/dist/js/bootstrap.js')
+        script(src='/vendor/bower_components/progressbar.js/dist/progressbar.js')
+        script(src='/vendor/bower_components/nprogress/nprogress.js')
+        script(src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js')
+        script(src='/socket.io/socket.io.js')
+
+    body
+        div.container
+            div(class='header clearfix')
+                nav(class='navbar navbar-default')
+                    div.container-fluid
+                        div.navbar-header
+                            button(type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1' aria-expanded='false')
+                                span.sr-only Toggle navigation
+                                span.icon-bar
+                                span.icon-bar
+                                span.icon-bar
+                            a.navbar-brand(href='/loader') AB
+                        div(class='collapse navbar-collapse' id='bs-example-navbar-collapse-1')
+                            ul(class='nav navbar-nav')
+                                li.nav-item(class=(title === 'Loader' ? 'active' : ''))
+                                    a(class='navbar-link' href="/loader")!= 'Loader' + '<span class="sr-only">(current)</span>'
+                                li.nav-item(class=(title === 'Help' ? 'active' : ''))
+                                    a.navbar-link(href='/help') Help
+                                li.nav-item(class=(title === 'Contact' ? 'active' : ''))
+                                    a.navbar-link(href='/contact') Contact
+                            //form(class='navbar-form navbar-left' role='search')
+                            //  div.form-group
+                            //    input.form-control(type='text', placeholder='Search')
+                            //  button(class='btn btn-primary', type='submit') Submit
+            div.jumbotron
+                block content
+                script(src='/javascripts/my.js')
+            footer.footer &copy; Company 2017

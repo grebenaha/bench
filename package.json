@@ -1,0 +1,36 @@
+{
+  "name": "bench",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www",
+    "devstart": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "async": "latest",
+    "body-parser": "~1.17.1",
+    "chart.js": "^2.6.0",
+    "cheerio": "^1.0.0-rc.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.3",
+    "express": "~4.15.2",
+    "get-element": "^0.1.1",
+    "morgan": "~1.8.1",
+    "preloader": "^4.0.2",
+    "progress": "latest",
+    "progressbar": "^1.1.1",
+    "progressbar.js": "latest",
+    "pug": "~2.0.0-beta11",
+    "randomstring": "^1.1.5",
+    "scuttlebutt": "^5.6.15",
+    "serve-favicon": "~2.4.2",
+    "socket.io": "^2.0.3",
+    "svg-preloader": "latest",
+    "sys": "0.0.1",
+    "time-stats": "latest"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0",
+    "request": "latest"
+  }
+}

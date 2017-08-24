@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Socket</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        let socket = io.connect();
+        socket.on('new', function (data) {
+            console.log(data);
+            socket.emit('my other event', { my: 'data' });
+        });
+    </script>
+</head>
+<body>
+
+
+</body>
+</html>
