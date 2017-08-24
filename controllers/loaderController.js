@@ -14,10 +14,10 @@ exports.index = function (req, res) {
 
 //Benchmark URL
 exports.benchmark = function (req, res, next) {
-    // io.on('socketToMe', function (socket) {
-    //     console.log('New Connection', socket.id)
-    //    // res.io.emit("socketToMe", {version: .1});
-    // });
+    io.on('socketToMe', function (socket) {
+        console.log('New Connection', socket.id)
+       // res.io.emit("socketToMe", {version: .1});
+    });
     const concurrency = req.body.concurrency;
     const port = req.body.port;
     const url = req.body.url;
