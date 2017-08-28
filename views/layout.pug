@@ -33,8 +33,10 @@ html(lang='en')
                             ul(class='nav navbar-nav')
                                 li.nav-item(class=(title === 'Loader' ? 'active' : ''))
                                     a(class='navbar-link' href="/loader")!= 'Loader' + '<span class="sr-only">(current)</span>'
+                                li.nav-item(class=(title === 'Load' ? 'active' : ''))
+                                    a.navbar-link(href='/loader/url/load') Load
                                 li.nav-item(class=(title === 'Help' ? 'active' : ''))
-                                    a.navbar-link(href='/help') Help
+                                    a.navbar-link(href='/help/my/load') Help
                                 li.nav-item(class=(title === 'Contact' ? 'active' : ''))
                                     a.navbar-link(href='/contact') Contact
                             //form(class='navbar-form navbar-left' role='search')

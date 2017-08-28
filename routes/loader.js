@@ -6,7 +6,9 @@ const loader_controller = require('../controllers/loaderController');
 /* GET converter home page. */
 router.get('/', loader_controller.index);
 
-/* POST data link and load. */
+/* GET */
+router.get('/url/load', loader_controller.benchmark_get);
 
-router.post('/', loader_controller.benchmark);
+/* POST data link and load. */
+router.post('/url/load', loader_controller.benchmark_post);
 module.exports = router;

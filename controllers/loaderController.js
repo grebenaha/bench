@@ -11,18 +11,33 @@ exports.index = function (req, res) {
         res.render('index', {title: 'Loader', error: err, data: results });
     });
 };
+exports.benchmark_get = function(req, res, next) {
+    async.parallel({
 
-//Benchmark URL
-exports.benchmark = function (req, res, next) {
-    io.on('socketToMe', function (socket) {
-        console.log('New Connection', socket.id)
-       // res.io.emit("socketToMe", {version: .1});
+    }, function(err, results) {
+        if (err) { return next(err); }
+        res.render('load_form', { title: 'Make Load'});
     });
+
+};
+//Benchmark URL
+exports.benchmark_post = function (req, res, next) {
+    // res.io.emit("socketToMe", {version: .1});
+    // console.log('LOADER')
+    //  // io.on('chat message', function (socket) {
+    //  //     console.log('New Connection', socket.id)
+    //  // res.io.emit("chat message", {version: .1});
+    //  // });
+    // io.on('connection', function(socket){
+    //     socket.on('chat message', function(msg){
+    //         res.io.emit('chat message', msg);
+    //     });
+    // });
+
     const concurrency = req.body.concurrency;
     const port = req.body.port;
     const url = req.body.url;
     const path = req.body.path;
-
     const options = {
         hostname: url,
         port: port,
@@ -37,7 +52,7 @@ exports.benchmark = function (req, res, next) {
             callback(null, latency);
         });
         req.on('error', (err) => {
-            res.render('index', {title: 'Error', error: err});
+            res.render('load_form', {title: 'Error', error: err});
 
         });
         req.end();
@@ -53,8 +68,10 @@ exports.benchmark = function (req, res, next) {
             return next(err)
         }
 
-        //res.io.emit("socketToMe", {version: .1});
-        res.render('index', {title: 'Loader', data: results});
+        res.io.emit("chat message", {data: results});
+        //res.io.emit("chat message", 'dada');
+        res.render('load_form', {title: 'Loader', data: results});
+        console.log(results)
     });
 
 };
